@@ -8,6 +8,9 @@ class PhonesController < ApplicationController
 
   # GET /phones/1 or /phones/1.json
   def show
+    HardWorker.perform_async("Faigy", 5)
+
+    render json: @phone
   end
 
   # GET /phones/new
